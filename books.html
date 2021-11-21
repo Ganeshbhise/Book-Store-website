@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style>
+    body {
+        background-color: #131325;
+    }
+
+    .flex-row {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+    }
+
+    .flex-column {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .center {
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .list {
+        border-radius: 3px;
+        overflow: hidden;
+        height: 187%;
+    }
+
+    .list .card {
+        cursor: pointer;
+        min-width: 700px;
+        margin-bottom: 10px;
+        perspective: 600px;
+        transition: all 0.1s;
+        background-color: #212140;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, .2);
+        overflow: hidden;
+        height: 90px;
+    }
+
+    .list .card .bottom {
+        height: 0px;
+        overflow: hidden;
+        width: 200px;
+        font-size: 12px;
+        color: #777;
+        font-weight: normal;
+    }
+
+    .list .card.open {
+        padding: 30px;
+        height: auto;
+    }
+
+    .list .card.open .bottom {
+        margin-top: 10px;
+        height: 100%;
+        overflow: visible;
+    }
+
+    .list .card.open .book {
+        transform: rotateY(50deg);
+        box-shadow: -10px 10px 10px 2px rgba(0, 0, 0, .2), -2px 0px 0px 0px #888;
+        transition: all 0.5s;
+        transition-delay: 0.05s;
+    }
+
+    .list .card.open .info {
+        transform: translate(0, -10px);
+    }
+
+    .list .card.open .members {
+        padding: 15px 20px;
+        border-radius: 4px;
+        align-self: flex-start;
+    }
+
+    .list .card button.simple {
+        cursor: pointer;
+        color: #ccc;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        background-color: #1ea94b;
+        padding: 15px 20px;
+        font-family: 'Montserrat';
+        font-weight: bold;
+        transition: all 0.1s;
+    }
+
+    .list .card button.simple:hover {
+        box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, .3);
+        transform: translate(0, -2px);
+    }
+
+    .list .card .book {
+        transition: all 0.5s;
+        width: 120px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+
+    .list .card .info {
+        transition: all 0.2s;
+        min-width: 200px;
+        padding: 0px 30px;
+        font-family: 'Montserrat';
+        font-weight: bold;
+    }
+
+    .list .card .info .title {
+        font-size: 1em;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+
+    .list .card .info .author {
+        font-size: 12px;
+        font-weight: normal;
+        color: #888;
+    }
+
+    .list .card .group {
+        margin-left: auto;
+    }
+
+    .list .card .members {
+        transition: all 0.1s;
+        padding: 40px;
+        font-family: 'Montserrat';
+        color: #ccc;
+        background-color: #1c1c36;
+    }
+
+    .list .card .members .current {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .list .card .members .max {
+        opacity: 0.5;
+        margin-left: 10px;
+    }
+
+    .simple a {
+        text-decoration: none;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class='container'>
+        <div class='center list flex-column'>
+            <div class='card flex-row open'>
+                <img src='http://i.harperapps.com/covers/9780008108298/y450-293.jpg' class='book'>
+                <div class='flex-column info'>
+                    <div class='title'>The Fellowship of the Ring</div>
+                    <div class='author'>J.R.R. Tolkien</div>
+                    <div class='hidden bottom summary'>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ratione impedit temporibus
+                        maiores autem aperiam assumenda exercitationem, quisquam nobis esse.
+                    </div>
+                </div>
+                <div class='flex-column group'>
+                    <div class='members'>
+                        <span class='current'>14</span> /
+                        <span class='max'>30</span>
+                    </div>
+                    <div class='hidden bottom'>
+                        <button class='simple'>
+                            <a href="/contact.html">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class='card flex-row open'>
+                <img src='https://i.pinimg.com/originals/52/ec/12/52ec12f7dd324864949267c92cce2e43.jpg' class='book'>
+                <div class='flex-column info'>
+                    <div class='title'>1984</div>
+                    <div class='author'>George Orwell</div>
+                    <div class='hidden bottom summary'>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ratione impedit temporibus
+                        maiores autem aperiam assumenda exercitationem, quisquam nobis esse.
+                    </div>
+                </div>
+                <div class='flex-column group'>
+                    <div class='members'>
+                        <span class='current'>14</span> /
+                        <span class='max'>30</span>
+                    </div>
+                    <div class='hidden bottom'>
+                        <button class='simple'>
+                            <a href="/contact.html">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class='card flex-row open' >
+                <img src='https://images-na.ssl-images-amazon.com/images/I/51N5qVjuKAL._SX309_BO1,204,203,200_.jpg'
+                    class='book'>
+                <div class='flex-column info'>
+                    <div class='title'>To Kill a Mockingbird</div>
+                    <div class='author'>Harper Lee</div>
+                    <div class='hidden bottom summary'>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ratione impedit temporibus
+                        maiores autem aperiam assumenda exercitationem, quisquam nobis esse.
+                    </div>
+                </div>
+                <div class='flex-column group'>
+                    <div class='members'>
+                        <span class='current'>14</span> /
+                        <span class='max'>30</span>
+                    </div>
+                    <div class='hidden bottom'>
+                        <button class='simple'>
+                            <a href="/contact.html">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class='card flex-row open'>
+                <img src='data:image/jpeg;base64,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'
+                    class='book'>
+                <div class='flex-column info'>
+                    <div class='title'>Great Gatsby</div>
+                    <div class='author'>F Scott Fitzgerald</div>
+                    <div class='hidden bottom summary'>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ratione impedit temporibus
+                        maiores autem aperiam assumenda exercitationem, quisquam nobis esse.
+                    </div>
+                </div>
+                <div class='flex-column group'>
+                    <div class='members'>
+                        <span class='current'>14</span> /
+                        <span class='max'>30</span>
+                    </div>
+                    <div class='hidden bottom'>
+                        <button class='simple'>
+                            <a href="/contact.html">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let old = document.querySelector('.card').get(0);
+    document.querySelector('.card').click(function () {
+        if (old != null && document.querySelector(old).classList.contains('open')){
+            document.querySelector(old).classList.toggle('open');
+            document.querySelector(this).classList.toggle('open');
+            old = this;
+        }
+
+    })
+
+
+
+</script>
+
+
+</html>
